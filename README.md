@@ -21,16 +21,18 @@ npm run dev
 #### 必现业务场景简要描述
 ```
 <Form>
-<radiogroup v-modal='switch'></radiogroup> // 控制开关
-<FormItem label='a' prop='a' required v-if='switch' />
-<FormItem label='b' />
-<FormItem label='c' prop='c' v-if='switch' />
+    <radiogroup v-modal='switch'>
+        xxxx
+    </radiogroup> // 控制开关
+    <FormItem label='a' prop='a' required v-if='switch' />
+    <FormItem label='b' />
+    <FormItem label='c' prop='c' v-if='switch' />
 </Form>
 ```
 将`switch`调至`false`, 控制台稳定出现如下报错
 > 稳定复现的核心是如代码所示, 三个formItem组件依次排序, a有required和v-if属性, b无属性, c有v-if属性, 打乱顺序则不会复现bug
 
-![错误1]](./images/img1.jpg)
+![错误1]](https://pic3.zhimg.com/80/v2-f88babfd04412ab61374ad2073400cf8_720w.jpg?source=1940ef5c)
 
 
 ### 目前我碰到的疑惑
