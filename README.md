@@ -29,7 +29,7 @@ npm run dev
     <FormItem label='c' prop='c' v-if='switch' />
 </Form>
 ```
-将`switch`调至`false`, 控制台稳定出现如下报错
+切换`switch`, 控制台稳定出现如下报错
 > 稳定复现的核心是如代码所示, 三个formItem组件依次排序, a有required和v-if属性, b无属性, c有v-if属性, 打乱顺序则不会复现bug
 
 ![错误1](https://pic3.zhimg.com/80/v2-f88babfd04412ab61374ad2073400cf8_720w.jpg?source=1940ef5c)
@@ -37,7 +37,7 @@ npm run dev
 
 ### 目前我碰到的疑惑
 * 调试代码
-1. 在`Vue.prototype.$watch`中加入`watcher.expression === 'required' && console.log(watcher)`
+1. 在`Vue.prototype.$watch`中的`var watcher = new Watcher(vm, expOrFn, cb, options);`后面加入`watcher.expression === 'required' && console.log(watcher)`
 2. 在`Watcher.prototype.run`中加入`this.expression === 'required' && console.log(this)`
 
 前者会在控制台依次打出id为33,43,53的`Watcher`, 且其对应的vm属性中的label分别为a,b,c
