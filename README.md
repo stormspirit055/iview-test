@@ -30,7 +30,7 @@ npm run dev
 将`switch`调至`false`, 控制台稳定出现如下报错
 > 稳定复现的核心是如代码所示, 三个formItem组件依次排序, a有required和v-if属性, b无属性, c有v-if属性, 打乱顺序则不会复现bug
 
-![错误1]](./images/img1.png)
+![错误1]](./images/img1.jpg)
 
 
 ### 目前我碰到的疑惑
