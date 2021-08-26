@@ -1,6 +1,5 @@
 <template>
     <div :class="classes">
-        {{required}}
         <label :class="[prefixCls + '-label']" :for="labelFor" :style="labelStyles" v-if="label || $slots.label"><slot name="label">{{ label }}{{ FormInstance.colon }}</slot></label>
         <div :class="[prefixCls + '-content']" :style="contentStyles">
             <slot></slot>
@@ -101,6 +100,7 @@
             required: {
                 __key: 'required',
                 handler (n, o) {
+                    console.log(n, o)
                     this.isRequired = n;
                     if (o && !n) {
                         this.resetField();
